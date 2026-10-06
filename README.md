@@ -20,6 +20,7 @@ not a claim that Scala 2.13 is the newest Scala major version.
 | Lift JSON | 3.5.0 |
 | Play JSON | 3.0.6 |
 | spray-json | 1.3.6 |
+| Jawn parser / custom direct facade | 1.8.0 |
 
 Unused Argonaut integration dependencies and the obsolete dependency-graph
 plugin are removed. The build uses Maven Central over HTTPS; the old HTTP,
@@ -32,8 +33,9 @@ One measured operation still processes all **25,000 records**; results are
 **milliseconds per batch**, not milliseconds per record. Parser/codec creation
 once per batch is retained from the upstream benchmark.
 
-`benchmarks.Validate` checks all 25,000 source records and encode/decode round
-trips using every library before measurements. The fixture data is unchanged.
+`benchmarks.Validate` checks all 25,000 source records using every decoder and
+encode/decode round trips for implementations with encoders before measurements.
+The fixture data is unchanged.
 These checks demonstrate agreement on this fixture, not identical semantics
 for arbitrary missing fields, duplicate keys, malformed input or numeric limits.
 Each library retains its default formatting and optional-field behavior, so
@@ -57,10 +59,41 @@ BENCHMARK_FILTER='benchmarks.*Benchmark.(Circe|CirceBooster|Jsoniter)Marshaller.
   bash scripts/run-mini.sh
 ```
 
-This validates all eight implementations, then measures the selected three
+This validates all nine implementations, then measures the selected three
 together with identical JMH settings (about four minutes). These six fresh
 measurements are kept in their own directory; results from separate runs are
 not spliced together. The original seven-library results remain in `results/`.
+
+### Direct Jawn facade
+
+Plain Circe already uses Jawn to construct its JSON tree. The ninth implementation
+is therefore a **custom, schema-specific facade** that builds `Bird` and `Place`
+as Jawn parses, bypassing a generic JSON tree and a later decoder traversal.
+Scalar number tokens and typed array builders are temporary values; this is not
+a zero-allocation decoder. Adding another model requires handwritten contexts.
+
+Jawn is a parser, so the facade has **no encoding benchmark**. `BirdParser` is the
+decode-only interface; the existing encoders implement `Marshaller`. Validation
+checks all 25,000 decodes against Circe, plus field order, escaped strings,
+unknown nested fields, optional null/missing values, numeric limits, type errors
+and reuse after a failed parse. Instances are for sequential use, not shared
+concurrently. Required fields are checked, duplicate keys use their last value,
+integers must be exact 32-bit values, and double fields must be finite.
+
+Run a fresh, decode-only comparison with the other relevant implementations:
+
+```sh
+RESULTS_DIR=results/jawn-facade-comparison \
+BENCHMARK_OPERATIONS=decode \
+BENCHMARK_LIBRARIES=circe,circebooster,jsoniter,jawnfacade \
+BENCHMARK_FILTER='benchmarks.DeserializationBenchmark.(Circe|CirceBooster|Jsoniter|JawnFacade)Marshaller_parse' \
+  bash scripts/run-mini.sh
+```
+
+This explicitly pins Jawn 1.8.0 for both the custom facade and Circe. Earlier
+recorded comparisons resolved Jawn 1.7.0, so use this fresh four-way run when
+comparing the new facade. [Results and allocations](results/jawn-facade-comparison/README.md)
+are recorded separately from the earlier runs.
 
 ### Run on Linux
 
@@ -71,10 +104,10 @@ bash scripts/run-mini.sh
 ```
 
 The script downloads the pinned sbt launcher into ignored `.tools/`, compiles
-and validates, then runs all sixteen benchmarks: one thread, two forks,
+and validates, then runs all seventeen benchmarks (nine decoders, eight encoders): one thread, two forks,
 five two-second warmup iterations and five two-second measurement iterations.
 Forks use a fixed 2 GiB heap and G1 GC; the GC profiler records allocation.
-Allow roughly eleven minutes plus dependency downloads and compilation.
+Allow roughly twelve minutes plus dependency downloads and compilation.
 Set `JAVA_HOME` to select another installed JDK.
 
 Raw JMH JSON, logs, hardware/JVM metadata, CSV and a readable table are saved in

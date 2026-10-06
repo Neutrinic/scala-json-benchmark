@@ -2,7 +2,6 @@ package marshallers
 
 import models.Bird
 
-trait Marshaller {
-  def parse(s: String): Bird
+trait Marshaller extends BirdParser {
   def toStr(bird: Bird): String
 }

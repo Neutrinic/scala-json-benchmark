@@ -13,6 +13,7 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-generic" % "0.14.16",
   "io.circe" %% "circe-parser" % "0.14.16",
   "io.argonaut" %% "argonaut" % "6.3.10",
+  "org.typelevel" %% "jawn-parser" % "1.8.0",
   "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % "2.41.2",
   "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-circe" % "2.41.2",
   "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % "2.41.2" % Provided

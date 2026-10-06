@@ -63,6 +63,12 @@ class DeserializationBenchmark {
   }
 
   @Benchmark
+  def JawnFacadeMarshaller_parse(): Array[Bird] = {
+    val parser = new JawnFacadeParser
+    data.map(parser.parse)
+  }
+
+  @Benchmark
   def JsoniterMarshaller_parse(): Array[Bird] = {
     val parser = new JsoniterMarshaller
     val parsed = data.map(parser.parse)

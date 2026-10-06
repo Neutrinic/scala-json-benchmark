@@ -1,0 +1,35 @@
+[info] welcome to sbt 2.0.10 (Ubuntu Java 21.0.12.1)
+[info] loading project definition from /home/mini/scala-json-benchmark/project
+[info] set current project to scala-json-benchmark (in build file:/home/mini/scala-json-benchmark/)
+[info] Executing in batch mode. For better performance use sbt's shell
+[info] compiling 6 Scala sources to /home/mini/scala-json-benchmark/target/out/jvm/scala-2.13.18/scala-json-benchmark/classes ...
+[warn] /home/mini/scala-json-benchmark/src/main/scala/benchmarks/ValidateJawn.scala:11:91: Unicode escapes in triple quoted strings are deprecated; use the literal character instead
+[warn]     val reordered = """{"hangs_out":[{"latlon":[1e1,-2.5],"_id":2147483647,"name":"a\\b\"c\u263a"}],"wing_span":1.25e2,"sights":4.0,"common_names":[],"scientific_name":"bird","unknown":{"nested":[{},[true,null,1]]}}"""
+[warn]                                                                                           ^
+[warn] one warning found
+[info] done compiling
+[info] compiling 18 Scala sources to /home/mini/scala-json-benchmark/target/out/jvm/scala-2.13.18/scala-json-benchmark/classes ...
+[warn] /home/mini/scala-json-benchmark/src/main/scala/benchmarks/ValidateJawn.scala:11:91: Unicode escapes in triple quoted strings are deprecated; use the literal character instead
+[warn]     val reordered = """{"hangs_out":[{"latlon":[1e1,-2.5],"_id":2147483647,"name":"a\\b\"c\u263a"}],"wing_span":1.25e2,"sights":4.0,"common_names":[],"scientific_name":"bird","unknown":{"nested":[{},[true,null,1]]}}"""
+[warn]                                                                                           ^
+[warn] one warning found
+[info] done compiling
+[success] elapsed time: 6 s, cache 81%, 9 disk cache hits, 2 onsite tasks
+[info] running benchmarks.Validate 
+PASS argonaut: 25000 decodes and round trips
+PASS circe: 25000 decodes and round trips
+PASS circe-booster: 25000 decodes and round trips
+PASS json4s: 25000 decodes and round trips
+PASS jsoniter-scala: 25000 decodes and round trips
+PASS jawn-facade: 25000 decodes (decode-only)
+PASS lift-json: 25000 decodes and round trips
+PASS play-json: 25000 decodes and round trips
+PASS spray-json: 25000 decodes and round trips
+PASS jawn-facade edge cases: order, escapes, unknown nested fields, options, numeric limits, invalid shapes and recovery
+[success] elapsed time: 5 s, cache 72%, 13 disk cache hits, 5 onsite tasks
+[info] running (fork) org.openjdk.jmh.generators.bytecode.JmhBytecodeGenerator /home/mini/scala-json-benchmark/target/out/jvm/scala-2.13.18/scala-json-benchmark/classes /home/mini/scala-json-benchmark/target/out/jvm/scala-2.13.18/scala-json-benchmark/src_managed/jmh /home/mini/scala-json-benchmark/target/out/jvm/scala-2.13.18/scala-json-benchmark/resource_managed/jmh default
+[info] Processing 78 classes from /home/mini/scala-json-benchmark/target/out/jvm/scala-2.13.18/scala-json-benchmark/classes with "reflection" generator
+[info] Writing out Java source to /home/mini/scala-json-benchmark/target/out/jvm/scala-2.13.18/scala-json-benchmark/src_managed/jmh and resources to /home/mini/scala-json-benchmark/target/out/jvm/scala-2.13.18/scala-json-benchmark/resource_managed/jmh
+[info] compiling 25 Java sources to /home/mini/scala-json-benchmark/target/out/jvm/scala-2.13.18/scala-json-benchmark/classes ...
+[info] done compiling
+[success] elapsed time: 1 s, cache 89%, 25 disk cache hits, 3 onsite tasks

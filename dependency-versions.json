@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-06T04:47:23.9867174Z",
+  "checked_utc": "2026-10-06T05:10:26.3909883Z",
   "scala_scope": "2.13 (original seven-library compatibility)",
   "libraries": [
     {
@@ -73,6 +73,12 @@
       "metadata": "https://repo.maven.apache.org/maven2/com/github/plokhotnyuk/jsoniter-scala/jsoniter-scala-circe_2.13/maven-metadata.xml",
       "latest_stable_compatible": "2.41.2",
       "latest_including_prereleases": "2.41.2"
+    },
+    {
+      "name": "jawn-parser",
+      "metadata": "https://repo.maven.apache.org/maven2/org/typelevel/jawn-parser_2.13/maven-metadata.xml",
+      "latest_stable_compatible": "1.8.0",
+      "latest_including_prereleases": "1.8.0"
     }
   ]
 }

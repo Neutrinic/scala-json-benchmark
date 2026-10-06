@@ -5,16 +5,21 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
 p=argparse.ArgumentParser()
 p.add_argument('--results-dir',default='results')
-p.add_argument('--libraries',default='argonaut,circe,circebooster,json4s,jsoniter,lift,play,spray')
+p.add_argument('--libraries',default='argonaut,circe,circebooster,json4s,jsoniter,jawnfacade,lift,play,spray')
+p.add_argument('--operations',default='decode,encode')
 a=p.parse_args()
 RESULTS=ROOT/a.results_dir
 expected=set(a.libraries.split(','))
+operations=set(a.operations.split(','))
+assert operations and operations <= {'decode','encode'}
+expected_pairs={(library,operation) for library in expected for operation in operations
+                if not (library=='jawnfacade' and operation=='encode')}
 records=[line.rstrip(b'\r\n') for line in (ROOT/'src/main/resources/birds.data').read_bytes().splitlines(keepends=True)]
 count=len(records)
 assert count==25000
 input_bytes=sum(map(len,records))
 results=json.loads((RESULTS/'jmh.json').read_text())
-assert len(results)==2*len(expected), f'Expected {2*len(expected)} benchmarks, got {len(results)}'
+assert len(results)==len(expected_pairs), f'Expected {len(expected_pairs)} benchmarks, got {len(results)}'
 rows=[]
 for result in results:
     name=result['benchmark'];metric=result['primaryMetric']
@@ -27,7 +32,7 @@ for result in results:
         rows_per_second=count*1000/metric['score'],allocated_bytes_per_row=allocated/count,
         input_MB_per_second=(input_bytes/metric['score']/1000 if operation=='decode' else ''))
     rows.append(row)
-assert {(r['library'],r['operation']) for r in rows}=={(library,operation) for library in expected for operation in ('decode','encode')}
+assert {(r['library'],r['operation']) for r in rows}==expected_pairs
 with (RESULTS/'summary.csv').open('w',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
 text=['# Mini: Scala JSON benchmark', '',
@@ -37,9 +42,12 @@ text=['# Mini: Scala JSON benchmark', '',
     'Encoders retain library defaults; their JSON output is round-trip equivalent but can differ in formatting and optional fields.', '',
     '| Library | Decode batch ms | Encode batch ms | Decode rows/s | Decode input MB/s | Decode allocation B/row |',
     '|---|---:|---:|---:|---:|---:|']
+if operations=={'decode'}:
+    text.insert(4, 'Decode-only run: encode timings are not measured. The custom Jawn facade has no encoder.')
 for row in sorted((r for r in rows if r['operation']=='decode'),key=lambda r:r['batch_ms']):
-    encode=next(r for r in rows if r['operation']=='encode' and r['library']==row['library'])
-    text.append(f"| {row['library']} | {row['batch_ms']:.3f} ± {row['batch_error_ms']:.3f} | {encode['batch_ms']:.3f} ± {encode['batch_error_ms']:.3f} | {row['rows_per_second']:,.0f} | {row['input_MB_per_second']:.1f} | {row['allocated_bytes_per_row']:,.0f} |")
+    encode=next((r for r in rows if r['operation']=='encode' and r['library']==row['library']),None)
+    encode_text=f"{encode['batch_ms']:.3f} ± {encode['batch_error_ms']:.3f}" if encode else '—'
+    text.append(f"| {row['library']} | {row['batch_ms']:.3f} ± {row['batch_error_ms']:.3f} | {encode_text} | {row['rows_per_second']:,.0f} | {row['input_MB_per_second']:.1f} | {row['allocated_bytes_per_row']:,.0f} |")
 text+=['',f'Fixture: {count:,} JSON records, {input_bytes:,} UTF-8 bytes excluding line separators.',
        'Raw timings, all allocation metrics and per-fork samples: `jmh.json`. Full run output: `jmh.log`.',
        'CPU/JVM and fixture checksum: `environment.txt`; source checksums: `source.sha256`.']
