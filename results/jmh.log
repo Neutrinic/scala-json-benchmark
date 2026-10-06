@@ -1,0 +1,1702 @@
+[info] welcome to sbt 2.0.10 (Ubuntu Java 21.0.12.1)
+[info] loading project definition from /home/mini/scala-json-benchmark/project
+[info] set current project to scala-json-benchmark (in build file:/home/mini/scala-json-benchmark/)
+[info] running (fork) org.openjdk.jmh.Main -wi 5 -i 5 -w 2s -r 2s -f 2 -t 1 -prof gc -foe true -jvmArgs "-Xms2g -Xmx2g -XX:+UseG1GC" -rf json -rff results/jmh.json benchmarks.*Benchmark.*
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.DeserializationBenchmark.ArgonautMarshaller_parse
+
+# Run progress: 0.00% complete, ETA 00:09:20
+# Fork: 1 of 2
+# Warmup Iteration   1: 228.995 ms/op
+# Warmup Iteration   2: 110.864 ms/op
+# Warmup Iteration   3: 110.590 ms/op
+# Warmup Iteration   4: 111.397 ms/op
+# Warmup Iteration   5: 111.162 ms/op
+Iteration   1: 110.659 ms/op
+                 gc.alloc.rate:      4974.182 MB/sec
+                 gc.alloc.rate.norm: 577242627.789 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            29.000 ms
+
+Iteration   2: 110.994 ms/op
+                 gc.alloc.rate:      4959.122 MB/sec
+                 gc.alloc.rate.norm: 577242627.789 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            34.000 ms
+
+Iteration   3: 110.917 ms/op
+                 gc.alloc.rate:      4962.696 MB/sec
+                 gc.alloc.rate.norm: 577242627.789 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            32.000 ms
+
+Iteration   4: 111.292 ms/op
+                 gc.alloc.rate:      4946.090 MB/sec
+                 gc.alloc.rate.norm: 577242649.778 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            36.000 ms
+
+Iteration   5: 111.246 ms/op
+                 gc.alloc.rate:      4948.066 MB/sec
+                 gc.alloc.rate.norm: 577242649.778 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            29.000 ms
+
+
+# Run progress: 3.57% complete, ETA 00:09:24
+# Fork: 2 of 2
+# Warmup Iteration   1: 227.607 ms/op
+# Warmup Iteration   2: 110.900 ms/op
+# Warmup Iteration   3: 111.150 ms/op
+# Warmup Iteration   4: 110.729 ms/op
+# Warmup Iteration   5: 110.493 ms/op
+Iteration   1: 110.899 ms/op
+                 gc.alloc.rate:      4963.531 MB/sec
+                 gc.alloc.rate.norm: 577242627.789 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            33.000 ms
+
+Iteration   2: 110.359 ms/op
+                 gc.alloc.rate:      4987.827 MB/sec
+                 gc.alloc.rate.norm: 577242627.789 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            34.000 ms
+
+Iteration   3: 110.968 ms/op
+                 gc.alloc.rate:      4960.241 MB/sec
+                 gc.alloc.rate.norm: 577242627.789 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            34.000 ms
+
+Iteration   4: 111.194 ms/op
+                 gc.alloc.rate:      4950.184 MB/sec
+                 gc.alloc.rate.norm: 577242627.789 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            35.000 ms
+
+Iteration   5: 110.819 ms/op
+                 gc.alloc.rate:      4967.125 MB/sec
+                 gc.alloc.rate.norm: 577242627.789 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            28.000 ms
+
+
+
+Result "benchmarks.DeserializationBenchmark.ArgonautMarshaller_parse":
+  110.935 ±(99.9%) 0.427 ms/op [Average]
+  (min, avg, max) = (110.359, 110.935, 111.292), stdev = 0.283
+  CI (99.9%): [110.508, 111.362] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.ArgonautMarshaller_parse:gc.alloc.rate":
+  4961.906 ±(99.9%) 19.142 MB/sec [Average]
+  (min, avg, max) = (4946.090, 4961.906, 4987.827), stdev = 12.661
+  CI (99.9%): [4942.765, 4981.048] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.ArgonautMarshaller_parse:gc.alloc.rate.norm":
+  577242632.187 ±(99.9%) 14.017 B/op [Average]
+  (min, avg, max) = (577242627.789, 577242632.187, 577242649.778), stdev = 9.271
+  CI (99.9%): [577242618.171, 577242646.204] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.ArgonautMarshaller_parse:gc.count":
+  86.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (8.000, 8.600, 9.000), stdev = 0.516
+  CI (99.9%): [86.000, 86.000] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.ArgonautMarshaller_parse:gc.time":
+  324.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (28.000, 32.400, 36.000), stdev = 2.797
+  CI (99.9%): [324.000, 324.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.DeserializationBenchmark.CirceMarshaller_parse
+
+# Run progress: 7.14% complete, ETA 00:09:07
+# Fork: 1 of 2
+# Warmup Iteration   1: 113.972 ms/op
+# Warmup Iteration   2: 66.841 ms/op
+# Warmup Iteration   3: 67.539 ms/op
+# Warmup Iteration   4: 66.865 ms/op
+# Warmup Iteration   5: 67.006 ms/op
+Iteration   1: 67.088 ms/op
+                 gc.alloc.rate:      3436.964 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            20.000 ms
+
+Iteration   2: 67.183 ms/op
+                 gc.alloc.rate:      3432.093 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            18.000 ms
+
+Iteration   3: 67.334 ms/op
+                 gc.alloc.rate:      3424.409 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            22.000 ms
+
+Iteration   4: 68.643 ms/op
+                 gc.alloc.rate:      3359.102 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            15.000 ms
+
+Iteration   5: 67.268 ms/op
+                 gc.alloc.rate:      3427.726 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            19.000 ms
+
+
+# Run progress: 10.71% complete, ETA 00:08:41
+# Fork: 2 of 2
+# Warmup Iteration   1: 117.700 ms/op
+# Warmup Iteration   2: 66.977 ms/op
+# Warmup Iteration   3: 67.459 ms/op
+# Warmup Iteration   4: 68.242 ms/op
+# Warmup Iteration   5: 66.917 ms/op
+Iteration   1: 67.235 ms/op
+                 gc.alloc.rate:      3429.351 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            20.000 ms
+
+Iteration   2: 67.167 ms/op
+                 gc.alloc.rate:      3432.845 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            19.000 ms
+
+Iteration   3: 67.377 ms/op
+                 gc.alloc.rate:      3422.001 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            17.000 ms
+
+Iteration   4: 67.315 ms/op
+                 gc.alloc.rate:      3425.261 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            21.000 ms
+
+Iteration   5: 67.240 ms/op
+                 gc.alloc.rate:      3429.059 MB/sec
+                 gc.alloc.rate.norm: 241798870.400 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            19.000 ms
+
+
+
+Result "benchmarks.DeserializationBenchmark.CirceMarshaller_parse":
+  67.385 ±(99.9%) 0.681 ms/op [Average]
+  (min, avg, max) = (67.088, 67.385, 68.643), stdev = 0.450
+  CI (99.9%): [66.704, 68.066] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.CirceMarshaller_parse:gc.alloc.rate":
+  3421.881 ±(99.9%) 34.003 MB/sec [Average]
+  (min, avg, max) = (3359.102, 3421.881, 3436.964), stdev = 22.491
+  CI (99.9%): [3387.878, 3455.884] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.CirceMarshaller_parse:gc.alloc.rate.norm":
+  241798870.400 ±(99.9%) 0.001 B/op [Average]
+  (min, avg, max) = (241798870.400, 241798870.400, 241798870.400), stdev = 0.001
+  CI (99.9%): [241798870.400, 241798870.400] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.CirceMarshaller_parse:gc.count":
+  58.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (5.000, 5.800, 6.000), stdev = 0.422
+  CI (99.9%): [58.000, 58.000] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.CirceMarshaller_parse:gc.time":
+  190.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (15.000, 19.000, 22.000), stdev = 2.000
+  CI (99.9%): [190.000, 190.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.DeserializationBenchmark.Json4SMarshaller_parse
+
+# Run progress: 14.29% complete, ETA 00:08:17
+# Fork: 1 of 2
+# Warmup Iteration   1: 341.283 ms/op
+# Warmup Iteration   2: 125.627 ms/op
+# Warmup Iteration   3: 125.093 ms/op
+# Warmup Iteration   4: 125.590 ms/op
+# Warmup Iteration   5: 126.172 ms/op
+Iteration   1: 125.989 ms/op
+                 gc.alloc.rate:      2568.444 MB/sec
+                 gc.alloc.rate.norm: 339356528.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            16.000 ms
+
+Iteration   2: 128.152 ms/op
+                 gc.alloc.rate:      2525.083 MB/sec
+                 gc.alloc.rate.norm: 339356528.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            14.000 ms
+
+Iteration   3: 125.939 ms/op
+                 gc.alloc.rate:      2569.469 MB/sec
+                 gc.alloc.rate.norm: 339356528.000 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            21.000 ms
+
+Iteration   4: 126.059 ms/op
+                 gc.alloc.rate:      2566.930 MB/sec
+                 gc.alloc.rate.norm: 339356530.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            16.000 ms
+
+Iteration   5: 126.070 ms/op
+                 gc.alloc.rate:      2566.892 MB/sec
+                 gc.alloc.rate.norm: 339356528.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            16.000 ms
+
+
+# Run progress: 17.86% complete, ETA 00:07:55
+# Fork: 2 of 2
+# Warmup Iteration   1: 333.533 ms/op
+# Warmup Iteration   2: 126.035 ms/op
+# Warmup Iteration   3: 125.855 ms/op
+# Warmup Iteration   4: 126.790 ms/op
+# Warmup Iteration   5: 126.039 ms/op
+Iteration   1: 125.748 ms/op
+                 gc.alloc.rate:      2603.502 MB/sec
+                 gc.alloc.rate.norm: 343315560.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            13.000 ms
+
+Iteration   2: 126.020 ms/op
+                 gc.alloc.rate:      2597.888 MB/sec
+                 gc.alloc.rate.norm: 343315560.000 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            17.000 ms
+
+Iteration   3: 125.769 ms/op
+                 gc.alloc.rate:      2602.988 MB/sec
+                 gc.alloc.rate.norm: 343315560.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            16.000 ms
+
+Iteration   4: 125.847 ms/op
+                 gc.alloc.rate:      2601.298 MB/sec
+                 gc.alloc.rate.norm: 343315562.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            11.000 ms
+
+Iteration   5: 126.399 ms/op
+                 gc.alloc.rate:      2590.056 MB/sec
+                 gc.alloc.rate.norm: 343315560.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            14.000 ms
+
+
+
+Result "benchmarks.DeserializationBenchmark.Json4SMarshaller_parse":
+  126.199 ±(99.9%) 1.075 ms/op [Average]
+  (min, avg, max) = (125.748, 126.199, 128.152), stdev = 0.711
+  CI (99.9%): [125.125, 127.274] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.Json4SMarshaller_parse:gc.alloc.rate":
+  2579.255 ±(99.9%) 37.553 MB/sec [Average]
+  (min, avg, max) = (2525.083, 2579.255, 2603.502), stdev = 24.839
+  CI (99.9%): [2541.702, 2616.808] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.Json4SMarshaller_parse:gc.alloc.rate.norm":
+  341336044.400 ±(99.9%) 3154630.986 B/op [Average]
+  (min, avg, max) = (339356528.000, 341336044.400, 343315562.000), stdev = 2086593.075
+  CI (99.9%): [338181413.414, 344490675.386] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.Json4SMarshaller_parse:gc.count":
+  42.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (4.000, 4.200, 5.000), stdev = 0.422
+  CI (99.9%): [42.000, 42.000] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.Json4SMarshaller_parse:gc.time":
+  154.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (11.000, 15.400, 21.000), stdev = 2.675
+  CI (99.9%): [154.000, 154.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.DeserializationBenchmark.JsoniterMarshaller_parse
+
+# Run progress: 21.43% complete, ETA 00:07:34
+# Fork: 1 of 2
+# Warmup Iteration   1: 26.714 ms/op
+# Warmup Iteration   2: 13.614 ms/op
+# Warmup Iteration   3: 13.475 ms/op
+# Warmup Iteration   4: 13.454 ms/op
+# Warmup Iteration   5: 13.671 ms/op
+Iteration   1: 13.806 ms/op
+                 gc.alloc.rate:      2168.095 MB/sec
+                 gc.alloc.rate.norm: 31391255.669 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            7.000 ms
+
+Iteration   2: 13.954 ms/op
+                 gc.alloc.rate:      2145.163 MB/sec
+                 gc.alloc.rate.norm: 31391256.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            9.000 ms
+
+Iteration   3: 13.518 ms/op
+                 gc.alloc.rate:      2214.291 MB/sec
+                 gc.alloc.rate.norm: 31391254.919 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            10.000 ms
+
+Iteration   4: 13.474 ms/op
+                 gc.alloc.rate:      2221.725 MB/sec
+                 gc.alloc.rate.norm: 31391254.389 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            7.000 ms
+
+Iteration   5: 13.637 ms/op
+                 gc.alloc.rate:      2195.090 MB/sec
+                 gc.alloc.rate.norm: 31391255.020 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            10.000 ms
+
+
+# Run progress: 25.00% complete, ETA 00:07:12
+# Fork: 2 of 2
+# Warmup Iteration   1: 26.485 ms/op
+# Warmup Iteration   2: 13.713 ms/op
+# Warmup Iteration   3: 13.502 ms/op
+# Warmup Iteration   4: 13.460 ms/op
+# Warmup Iteration   5: 13.722 ms/op
+Iteration   1: 13.366 ms/op
+                 gc.alloc.rate:      2239.652 MB/sec
+                 gc.alloc.rate.norm: 31391254.080 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            6.000 ms
+
+Iteration   2: 13.570 ms/op
+                 gc.alloc.rate:      2205.957 MB/sec
+                 gc.alloc.rate.norm: 31391254.703 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            10.000 ms
+
+Iteration   3: 13.623 ms/op
+                 gc.alloc.rate:      2197.367 MB/sec
+                 gc.alloc.rate.norm: 31391255.020 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            11.000 ms
+
+Iteration   4: 13.436 ms/op
+                 gc.alloc.rate:      2227.885 MB/sec
+                 gc.alloc.rate.norm: 31391254.389 B/op
+                 gc.count:           3.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   5: 13.626 ms/op
+                 gc.alloc.rate:      2196.808 MB/sec
+                 gc.alloc.rate.norm: 31391255.020 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            10.000 ms
+
+
+
+Result "benchmarks.DeserializationBenchmark.JsoniterMarshaller_parse":
+  13.601 ±(99.9%) 0.265 ms/op [Average]
+  (min, avg, max) = (13.366, 13.601, 13.954), stdev = 0.175
+  CI (99.9%): [13.336, 13.866] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.JsoniterMarshaller_parse:gc.alloc.rate":
+  2201.203 ±(99.9%) 42.504 MB/sec [Average]
+  (min, avg, max) = (2145.163, 2201.203, 2239.652), stdev = 28.114
+  CI (99.9%): [2158.700, 2243.707] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.JsoniterMarshaller_parse:gc.alloc.rate.norm":
+  31391254.921 ±(99.9%) 0.884 B/op [Average]
+  (min, avg, max) = (31391254.080, 31391254.921, 31391256.000), stdev = 0.584
+  CI (99.9%): [31391254.037, 31391255.805] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.JsoniterMarshaller_parse:gc.count":
+  36.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (3.000, 3.600, 4.000), stdev = 0.516
+  CI (99.9%): [36.000, 36.000] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.JsoniterMarshaller_parse:gc.time":
+  88.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (6.000, 8.800, 11.000), stdev = 1.687
+  CI (99.9%): [88.000, 88.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.DeserializationBenchmark.LiftMarshaller_parse
+
+# Run progress: 28.57% complete, ETA 00:06:51
+# Fork: 1 of 2
+# Warmup Iteration   1: 159.686 ms/op
+# Warmup Iteration   2: 78.452 ms/op
+# Warmup Iteration   3: 78.877 ms/op
+# Warmup Iteration   4: 78.538 ms/op
+# Warmup Iteration   5: 80.049 ms/op
+Iteration   1: 80.349 ms/op
+                 gc.alloc.rate:      3719.689 MB/sec
+                 gc.alloc.rate.norm: 313419725.760 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            31.000 ms
+
+Iteration   2: 84.019 ms/op
+                 gc.alloc.rate:      3557.221 MB/sec
+                 gc.alloc.rate.norm: 313419736.000 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            15.000 ms
+
+Iteration   3: 81.339 ms/op
+                 gc.alloc.rate:      3674.394 MB/sec
+                 gc.alloc.rate.norm: 313419725.760 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            25.000 ms
+
+Iteration   4: 83.747 ms/op
+                 gc.alloc.rate:      3568.661 MB/sec
+                 gc.alloc.rate.norm: 313419737.333 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            35.000 ms
+
+Iteration   5: 82.254 ms/op
+                 gc.alloc.rate:      3633.480 MB/sec
+                 gc.alloc.rate.norm: 313419725.760 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            13.000 ms
+
+
+# Run progress: 32.14% complete, ETA 00:06:30
+# Fork: 2 of 2
+# Warmup Iteration   1: 203.229 ms/op
+# Warmup Iteration   2: 83.626 ms/op
+# Warmup Iteration   3: 81.972 ms/op
+# Warmup Iteration   4: 81.888 ms/op
+# Warmup Iteration   5: 81.577 ms/op
+Iteration   1: 82.420 ms/op
+                 gc.alloc.rate:      3626.229 MB/sec
+                 gc.alloc.rate.norm: 313419726.080 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            30.000 ms
+
+Iteration   2: 82.412 ms/op
+                 gc.alloc.rate:      3626.611 MB/sec
+                 gc.alloc.rate.norm: 313419725.760 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            19.000 ms
+
+Iteration   3: 81.031 ms/op
+                 gc.alloc.rate:      3688.429 MB/sec
+                 gc.alloc.rate.norm: 313419724.480 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            22.000 ms
+
+Iteration   4: 81.568 ms/op
+                 gc.alloc.rate:      3664.051 MB/sec
+                 gc.alloc.rate.norm: 313419725.760 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            37.000 ms
+
+Iteration   5: 80.608 ms/op
+                 gc.alloc.rate:      3707.826 MB/sec
+                 gc.alloc.rate.norm: 313419725.760 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            14.000 ms
+
+
+
+Result "benchmarks.DeserializationBenchmark.LiftMarshaller_parse":
+  81.975 ±(99.9%) 1.869 ms/op [Average]
+  (min, avg, max) = (80.349, 81.975, 84.019), stdev = 1.236
+  CI (99.9%): [80.105, 83.844] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.LiftMarshaller_parse:gc.alloc.rate":
+  3646.659 ±(99.9%) 82.757 MB/sec [Average]
+  (min, avg, max) = (3557.221, 3646.659, 3719.689), stdev = 54.739
+  CI (99.9%): [3563.902, 3729.416] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.LiftMarshaller_parse:gc.alloc.rate.norm":
+  313419727.845 ±(99.9%) 7.074 B/op [Average]
+  (min, avg, max) = (313419724.480, 313419727.845, 313419737.333), stdev = 4.679
+  CI (99.9%): [313419720.771, 313419734.920] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.LiftMarshaller_parse:gc.count":
+  61.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (6.000, 6.100, 7.000), stdev = 0.316
+  CI (99.9%): [61.000, 61.000] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.LiftMarshaller_parse:gc.time":
+  241.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (13.000, 24.100, 37.000), stdev = 8.863
+  CI (99.9%): [241.000, 241.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.DeserializationBenchmark.PlayMarshaller_parse
+
+# Run progress: 35.71% complete, ETA 00:06:10
+# Fork: 1 of 2
+# Warmup Iteration   1: 183.010 ms/op
+# Warmup Iteration   2: 83.479 ms/op
+# Warmup Iteration   3: 84.089 ms/op
+# Warmup Iteration   4: 84.156 ms/op
+# Warmup Iteration   5: 84.028 ms/op
+Iteration   1: 84.151 ms/op
+                 gc.alloc.rate:      4803.157 MB/sec
+                 gc.alloc.rate.norm: 423861208.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            33.000 ms
+
+Iteration   2: 83.794 ms/op
+                 gc.alloc.rate:      4823.638 MB/sec
+                 gc.alloc.rate.norm: 423861208.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            33.000 ms
+
+Iteration   3: 83.984 ms/op
+                 gc.alloc.rate:      4812.706 MB/sec
+                 gc.alloc.rate.norm: 423861208.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            33.000 ms
+
+Iteration   4: 84.245 ms/op
+                 gc.alloc.rate:      4797.826 MB/sec
+                 gc.alloc.rate.norm: 423861208.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            33.000 ms
+
+Iteration   5: 83.963 ms/op
+                 gc.alloc.rate:      4813.835 MB/sec
+                 gc.alloc.rate.norm: 423861208.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            32.000 ms
+
+
+# Run progress: 39.29% complete, ETA 00:05:49
+# Fork: 2 of 2
+# Warmup Iteration   1: 182.800 ms/op
+# Warmup Iteration   2: 84.259 ms/op
+# Warmup Iteration   3: 83.985 ms/op
+# Warmup Iteration   4: 84.120 ms/op
+# Warmup Iteration   5: 84.050 ms/op
+Iteration   1: 83.992 ms/op
+                 gc.alloc.rate:      4812.164 MB/sec
+                 gc.alloc.rate.norm: 423861208.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            33.000 ms
+
+Iteration   2: 84.068 ms/op
+                 gc.alloc.rate:      4807.715 MB/sec
+                 gc.alloc.rate.norm: 423861209.333 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            34.000 ms
+
+Iteration   3: 84.105 ms/op
+                 gc.alloc.rate:      4805.700 MB/sec
+                 gc.alloc.rate.norm: 423861208.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            33.000 ms
+
+Iteration   4: 84.044 ms/op
+                 gc.alloc.rate:      4809.262 MB/sec
+                 gc.alloc.rate.norm: 423861208.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            34.000 ms
+
+Iteration   5: 84.039 ms/op
+                 gc.alloc.rate:      4809.440 MB/sec
+                 gc.alloc.rate.norm: 423861208.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            34.000 ms
+
+
+
+Result "benchmarks.DeserializationBenchmark.PlayMarshaller_parse":
+  84.038 ±(99.9%) 0.183 ms/op [Average]
+  (min, avg, max) = (83.794, 84.038, 84.245), stdev = 0.121
+  CI (99.9%): [83.855, 84.221] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.PlayMarshaller_parse:gc.alloc.rate":
+  4809.544 ±(99.9%) 10.453 MB/sec [Average]
+  (min, avg, max) = (4797.826, 4809.544, 4823.638), stdev = 6.914
+  CI (99.9%): [4799.091, 4819.997] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.PlayMarshaller_parse:gc.alloc.rate.norm":
+  423861208.133 ±(99.9%) 0.637 B/op [Average]
+  (min, avg, max) = (423861208.000, 423861208.133, 423861209.333), stdev = 0.422
+  CI (99.9%): [423861207.496, 423861208.771] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.PlayMarshaller_parse:gc.count":
+  80.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (8.000, 8.000, 8.000), stdev = 0.001
+  CI (99.9%): [80.000, 80.000] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.PlayMarshaller_parse:gc.time":
+  332.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (32.000, 33.200, 34.000), stdev = 0.632
+  CI (99.9%): [332.000, 332.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.DeserializationBenchmark.SprayMarshaller_parse
+
+# Run progress: 42.86% complete, ETA 00:05:28
+# Fork: 1 of 2
+# Warmup Iteration   1: 125.144 ms/op
+# Warmup Iteration   2: 67.063 ms/op
+# Warmup Iteration   3: 66.727 ms/op
+# Warmup Iteration   4: 67.010 ms/op
+# Warmup Iteration   5: 67.208 ms/op
+Iteration   1: 67.258 ms/op
+                 gc.alloc.rate:      2502.511 MB/sec
+                 gc.alloc.rate.norm: 176503851.733 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            13.000 ms
+
+Iteration   2: 67.058 ms/op
+                 gc.alloc.rate:      2509.830 MB/sec
+                 gc.alloc.rate.norm: 176503851.733 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            14.000 ms
+
+Iteration   3: 66.522 ms/op
+                 gc.alloc.rate:      2530.142 MB/sec
+                 gc.alloc.rate.norm: 176503871.742 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            14.000 ms
+
+Iteration   4: 66.823 ms/op
+                 gc.alloc.rate:      2518.699 MB/sec
+                 gc.alloc.rate.norm: 176503855.733 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            14.000 ms
+
+Iteration   5: 66.415 ms/op
+                 gc.alloc.rate:      2534.085 MB/sec
+                 gc.alloc.rate.norm: 176503839.484 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            16.000 ms
+
+
+# Run progress: 46.43% complete, ETA 00:05:08
+# Fork: 2 of 2
+# Warmup Iteration   1: 120.668 ms/op
+# Warmup Iteration   2: 64.592 ms/op
+# Warmup Iteration   3: 64.544 ms/op
+# Warmup Iteration   4: 64.260 ms/op
+# Warmup Iteration   5: 64.050 ms/op
+Iteration   1: 64.162 ms/op
+                 gc.alloc.rate:      2643.296 MB/sec
+                 gc.alloc.rate.norm: 177851740.250 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            17.000 ms
+
+Iteration   2: 64.057 ms/op
+                 gc.alloc.rate:      2647.608 MB/sec
+                 gc.alloc.rate.norm: 177851712.750 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            14.000 ms
+
+Iteration   3: 64.252 ms/op
+                 gc.alloc.rate:      2639.554 MB/sec
+                 gc.alloc.rate.norm: 177851740.250 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            17.000 ms
+
+Iteration   4: 63.898 ms/op
+                 gc.alloc.rate:      2654.137 MB/sec
+                 gc.alloc.rate.norm: 177851712.750 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            10.000 ms
+
+Iteration   5: 64.230 ms/op
+                 gc.alloc.rate:      2640.268 MB/sec
+                 gc.alloc.rate.norm: 177851709.000 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            18.000 ms
+
+
+
+Result "benchmarks.DeserializationBenchmark.SprayMarshaller_parse":
+  65.468 ±(99.9%) 2.182 ms/op [Average]
+  (min, avg, max) = (63.898, 65.468, 67.258), stdev = 1.443
+  CI (99.9%): [63.285, 67.650] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.SprayMarshaller_parse:gc.alloc.rate":
+  2582.013 ±(99.9%) 101.409 MB/sec [Average]
+  (min, avg, max) = (2502.511, 2582.013, 2654.137), stdev = 67.076
+  CI (99.9%): [2480.604, 2683.422] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.SprayMarshaller_parse:gc.alloc.rate.norm":
+  177177788.543 ±(99.9%) 1074007.243 B/op [Average]
+  (min, avg, max) = (176503839.484, 177177788.543, 177851740.250), stdev = 710389.293
+  CI (99.9%): [176103781.299, 178251795.786] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.SprayMarshaller_parse:gc.count":
+  44.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (4.000, 4.400, 5.000), stdev = 0.516
+  CI (99.9%): [44.000, 44.000] (assumes normal distribution)
+
+Secondary result "benchmarks.DeserializationBenchmark.SprayMarshaller_parse:gc.time":
+  147.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (10.000, 14.700, 18.000), stdev = 2.359
+  CI (99.9%): [147.000, 147.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.SerializationBenchmark.ArgonautMarshaller_toStr
+
+# Run progress: 50.00% complete, ETA 00:04:47
+# Fork: 1 of 2
+# Warmup Iteration   1: 186.270 ms/op
+# Warmup Iteration   2: 95.164 ms/op
+# Warmup Iteration   3: 95.052 ms/op
+# Warmup Iteration   4: 94.905 ms/op
+# Warmup Iteration   5: 94.962 ms/op
+Iteration   1: 95.109 ms/op
+                 gc.alloc.rate:      4612.977 MB/sec
+                 gc.alloc.rate.norm: 460090612.727 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            12.000 ms
+
+Iteration   2: 94.963 ms/op
+                 gc.alloc.rate:      4620.059 MB/sec
+                 gc.alloc.rate.norm: 460090609.455 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            13.000 ms
+
+Iteration   3: 95.121 ms/op
+                 gc.alloc.rate:      4612.394 MB/sec
+                 gc.alloc.rate.norm: 460090608.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            13.000 ms
+
+Iteration   4: 94.965 ms/op
+                 gc.alloc.rate:      4619.852 MB/sec
+                 gc.alloc.rate.norm: 460090608.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            14.000 ms
+
+Iteration   5: 94.920 ms/op
+                 gc.alloc.rate:      4622.032 MB/sec
+                 gc.alloc.rate.norm: 460090608.000 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            13.000 ms
+
+
+# Run progress: 53.57% complete, ETA 00:04:27
+# Fork: 2 of 2
+# Warmup Iteration   1: 183.613 ms/op
+# Warmup Iteration   2: 94.877 ms/op
+# Warmup Iteration   3: 93.526 ms/op
+# Warmup Iteration   4: 92.882 ms/op
+# Warmup Iteration   5: 93.167 ms/op
+Iteration   1: 92.656 ms/op
+                 gc.alloc.rate:      4290.613 MB/sec
+                 gc.alloc.rate.norm: 416907313.455 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            11.000 ms
+
+Iteration   2: 92.991 ms/op
+                 gc.alloc.rate:      4275.146 MB/sec
+                 gc.alloc.rate.norm: 416907303.273 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            14.000 ms
+
+Iteration   3: 93.028 ms/op
+                 gc.alloc.rate:      4273.424 MB/sec
+                 gc.alloc.rate.norm: 416907303.273 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            10.000 ms
+
+Iteration   4: 92.829 ms/op
+                 gc.alloc.rate:      4282.498 MB/sec
+                 gc.alloc.rate.norm: 416907306.545 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            13.000 ms
+
+Iteration   5: 92.825 ms/op
+                 gc.alloc.rate:      4282.672 MB/sec
+                 gc.alloc.rate.norm: 416907303.273 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            10.000 ms
+
+
+
+Result "benchmarks.SerializationBenchmark.ArgonautMarshaller_toStr":
+  93.941 ±(99.9%) 1.722 ms/op [Average]
+  (min, avg, max) = (92.656, 93.941, 95.121), stdev = 1.139
+  CI (99.9%): [92.219, 95.663] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.ArgonautMarshaller_toStr:gc.alloc.rate":
+  4449.167 ±(99.9%) 268.330 MB/sec [Average]
+  (min, avg, max) = (4273.424, 4449.167, 4622.032), stdev = 177.484
+  CI (99.9%): [4180.837, 4717.497] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.ArgonautMarshaller_toStr:gc.alloc.rate.norm":
+  438498957.600 ±(99.9%) 34409266.353 B/op [Average]
+  (min, avg, max) = (416907303.273, 438498957.600, 460090612.727), stdev = 22759599.205
+  CI (99.9%): [404089691.247, 472908223.953] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.ArgonautMarshaller_toStr:gc.count":
+  76.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (7.000, 7.600, 8.000), stdev = 0.516
+  CI (99.9%): [76.000, 76.000] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.ArgonautMarshaller_toStr:gc.time":
+  123.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (10.000, 12.300, 14.000), stdev = 1.494
+  CI (99.9%): [123.000, 123.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.SerializationBenchmark.CirceMarshaller_toStr
+
+# Run progress: 57.14% complete, ETA 00:04:07
+# Fork: 1 of 2
+# Warmup Iteration   1: 84.539 ms/op
+# Warmup Iteration   2: 45.441 ms/op
+# Warmup Iteration   3: 44.202 ms/op
+# Warmup Iteration   4: 45.072 ms/op
+# Warmup Iteration   5: 44.548 ms/op
+Iteration   1: 44.897 ms/op
+                 gc.alloc.rate:      3918.750 MB/sec
+                 gc.alloc.rate.norm: 184503309.333 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            11.000 ms
+
+Iteration   2: 44.712 ms/op
+                 gc.alloc.rate:      3934.991 MB/sec
+                 gc.alloc.rate.norm: 184503319.289 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   3: 44.223 ms/op
+                 gc.alloc.rate:      3978.436 MB/sec
+                 gc.alloc.rate.norm: 184503308.870 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            11.000 ms
+
+Iteration   4: 44.822 ms/op
+                 gc.alloc.rate:      3925.057 MB/sec
+                 gc.alloc.rate.norm: 184503315.022 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   5: 44.278 ms/op
+                 gc.alloc.rate:      3973.516 MB/sec
+                 gc.alloc.rate.norm: 184503311.826 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            12.000 ms
+
+
+# Run progress: 60.71% complete, ETA 00:03:46
+# Fork: 2 of 2
+# Warmup Iteration   1: 84.190 ms/op
+# Warmup Iteration   2: 44.262 ms/op
+# Warmup Iteration   3: 44.263 ms/op
+# Warmup Iteration   4: 44.229 ms/op
+# Warmup Iteration   5: 44.345 ms/op
+Iteration   1: 44.321 ms/op
+                 gc.alloc.rate:      3969.715 MB/sec
+                 gc.alloc.rate.norm: 184503315.130 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            11.000 ms
+
+Iteration   2: 44.796 ms/op
+                 gc.alloc.rate:      3927.592 MB/sec
+                 gc.alloc.rate.norm: 184503310.044 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            10.000 ms
+
+Iteration   3: 44.484 ms/op
+                 gc.alloc.rate:      3955.078 MB/sec
+                 gc.alloc.rate.norm: 184503319.289 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            9.000 ms
+
+Iteration   4: 44.063 ms/op
+                 gc.alloc.rate:      3992.908 MB/sec
+                 gc.alloc.rate.norm: 184503308.870 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            11.000 ms
+
+Iteration   5: 44.244 ms/op
+                 gc.alloc.rate:      3976.471 MB/sec
+                 gc.alloc.rate.norm: 184503310.261 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            9.000 ms
+
+
+
+Result "benchmarks.SerializationBenchmark.CirceMarshaller_toStr":
+  44.484 ±(99.9%) 0.452 ms/op [Average]
+  (min, avg, max) = (44.063, 44.484, 44.897), stdev = 0.299
+  CI (99.9%): [44.032, 44.936] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.CirceMarshaller_toStr:gc.alloc.rate":
+  3955.251 ±(99.9%) 40.216 MB/sec [Average]
+  (min, avg, max) = (3918.750, 3955.251, 3992.908), stdev = 26.600
+  CI (99.9%): [3915.035, 3995.467] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.CirceMarshaller_toStr:gc.alloc.rate.norm":
+  184503312.793 ±(99.9%) 6.223 B/op [Average]
+  (min, avg, max) = (184503308.870, 184503312.793, 184503319.289), stdev = 4.116
+  CI (99.9%): [184503306.570, 184503319.016] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.CirceMarshaller_toStr:gc.count":
+  66.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (6.000, 6.600, 7.000), stdev = 0.516
+  CI (99.9%): [66.000, 66.000] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.CirceMarshaller_toStr:gc.time":
+  100.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (8.000, 10.000, 12.000), stdev = 1.414
+  CI (99.9%): [100.000, 100.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.SerializationBenchmark.Json4SMarshaller_toStr
+
+# Run progress: 64.29% complete, ETA 00:03:25
+# Fork: 1 of 2
+# Warmup Iteration   1: 263.303 ms/op
+# Warmup Iteration   2: 117.812 ms/op
+# Warmup Iteration   3: 114.489 ms/op
+# Warmup Iteration   4: 115.980 ms/op
+# Warmup Iteration   5: 115.962 ms/op
+Iteration   1: 115.582 ms/op
+                 gc.alloc.rate:      3093.065 MB/sec
+                 gc.alloc.rate.norm: 374914606.222 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            9.000 ms
+
+Iteration   2: 115.562 ms/op
+                 gc.alloc.rate:      3093.625 MB/sec
+                 gc.alloc.rate.norm: 374914597.333 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            9.000 ms
+
+Iteration   3: 115.644 ms/op
+                 gc.alloc.rate:      3091.280 MB/sec
+                 gc.alloc.rate.norm: 374914601.333 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   4: 115.199 ms/op
+                 gc.alloc.rate:      3103.360 MB/sec
+                 gc.alloc.rate.norm: 374914604.000 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   5: 115.529 ms/op
+                 gc.alloc.rate:      3094.434 MB/sec
+                 gc.alloc.rate.norm: 374914599.111 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            9.000 ms
+
+
+# Run progress: 67.86% complete, ETA 00:03:05
+# Fork: 2 of 2
+# Warmup Iteration   1: 287.673 ms/op
+# Warmup Iteration   2: 116.194 ms/op
+# Warmup Iteration   3: 115.773 ms/op
+# Warmup Iteration   4: 116.948 ms/op
+# Warmup Iteration   5: 116.938 ms/op
+Iteration   1: 117.331 ms/op
+                 gc.alloc.rate:      3047.030 MB/sec
+                 gc.alloc.rate.norm: 374914604.000 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            7.000 ms
+
+Iteration   2: 117.407 ms/op
+                 gc.alloc.rate:      3045.040 MB/sec
+                 gc.alloc.rate.norm: 374914597.333 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            9.000 ms
+
+Iteration   3: 116.910 ms/op
+                 gc.alloc.rate:      3058.027 MB/sec
+                 gc.alloc.rate.norm: 374914601.333 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            9.000 ms
+
+Iteration   4: 117.135 ms/op
+                 gc.alloc.rate:      3052.118 MB/sec
+                 gc.alloc.rate.norm: 374914604.000 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   5: 116.914 ms/op
+                 gc.alloc.rate:      3057.851 MB/sec
+                 gc.alloc.rate.norm: 374914599.111 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            9.000 ms
+
+
+
+Result "benchmarks.SerializationBenchmark.Json4SMarshaller_toStr":
+  116.321 ±(99.9%) 1.336 ms/op [Average]
+  (min, avg, max) = (115.199, 116.321, 117.407), stdev = 0.884
+  CI (99.9%): [114.985, 117.657] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.Json4SMarshaller_toStr:gc.alloc.rate":
+  3073.583 ±(99.9%) 35.226 MB/sec [Average]
+  (min, avg, max) = (3045.040, 3073.583, 3103.360), stdev = 23.300
+  CI (99.9%): [3038.357, 3108.809] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.Json4SMarshaller_toStr:gc.alloc.rate.norm":
+  374914601.378 ±(99.9%) 4.703 B/op [Average]
+  (min, avg, max) = (374914597.333, 374914601.378, 374914606.222), stdev = 3.111
+  CI (99.9%): [374914596.675, 374914606.081] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.Json4SMarshaller_toStr:gc.count":
+  52.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (5.000, 5.200, 6.000), stdev = 0.422
+  CI (99.9%): [52.000, 52.000] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.Json4SMarshaller_toStr:gc.time":
+  85.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (7.000, 8.500, 9.000), stdev = 0.707
+  CI (99.9%): [85.000, 85.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.SerializationBenchmark.JsoniterMarshaller_toStr
+
+# Run progress: 71.43% complete, ETA 00:02:45
+# Fork: 1 of 2
+# Warmup Iteration   1: 21.682 ms/op
+# Warmup Iteration   2: 16.965 ms/op
+# Warmup Iteration   3: 14.285 ms/op
+# Warmup Iteration   4: 14.365 ms/op
+# Warmup Iteration   5: 14.278 ms/op
+Iteration   1: 14.366 ms/op
+                 gc.alloc.rate:      732.782 MB/sec
+                 gc.alloc.rate.norm: 11039338.971 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   2: 14.255 ms/op
+                 gc.alloc.rate:      738.472 MB/sec
+                 gc.alloc.rate.norm: 11039338.610 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   3: 14.186 ms/op
+                 gc.alloc.rate:      742.086 MB/sec
+                 gc.alloc.rate.norm: 11039338.610 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 14.392 ms/op
+                 gc.alloc.rate:      731.438 MB/sec
+                 gc.alloc.rate.norm: 11039339.338 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   5: 14.214 ms/op
+                 gc.alloc.rate:      740.603 MB/sec
+                 gc.alloc.rate.norm: 11039339.972 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            3.000 ms
+
+
+# Run progress: 75.00% complete, ETA 00:02:24
+# Fork: 2 of 2
+# Warmup Iteration   1: 22.787 ms/op
+# Warmup Iteration   2: 16.914 ms/op
+# Warmup Iteration   3: 14.384 ms/op
+# Warmup Iteration   4: 14.209 ms/op
+# Warmup Iteration   5: 14.052 ms/op
+Iteration   1: 14.210 ms/op
+                 gc.alloc.rate:      740.803 MB/sec
+                 gc.alloc.rate.norm: 11039338.383 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   2: 14.124 ms/op
+                 gc.alloc.rate:      745.298 MB/sec
+                 gc.alloc.rate.norm: 11039338.028 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            1.000 ms
+
+Iteration   3: 14.143 ms/op
+                 gc.alloc.rate:      744.301 MB/sec
+                 gc.alloc.rate.norm: 11039338.028 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   4: 14.217 ms/op
+                 gc.alloc.rate:      740.425 MB/sec
+                 gc.alloc.rate.norm: 11039339.745 B/op
+                 gc.count:           2.000 counts
+                 gc.time:            2.000 ms
+
+Iteration   5: 14.152 ms/op
+                 gc.alloc.rate:      743.827 MB/sec
+                 gc.alloc.rate.norm: 11039338.028 B/op
+                 gc.count:           1.000 counts
+                 gc.time:            2.000 ms
+
+
+
+Result "benchmarks.SerializationBenchmark.JsoniterMarshaller_toStr":
+  14.226 ±(99.9%) 0.136 ms/op [Average]
+  (min, avg, max) = (14.124, 14.226, 14.392), stdev = 0.090
+  CI (99.9%): [14.090, 14.362] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.JsoniterMarshaller_toStr:gc.alloc.rate":
+  740.003 ±(99.9%) 7.028 MB/sec [Average]
+  (min, avg, max) = (731.438, 740.003, 745.298), stdev = 4.649
+  CI (99.9%): [732.975, 747.032] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.JsoniterMarshaller_toStr:gc.alloc.rate.norm":
+  11039338.771 ±(99.9%) 1.082 B/op [Average]
+  (min, avg, max) = (11039338.028, 11039338.771, 11039339.972), stdev = 0.716
+  CI (99.9%): [11039337.689, 11039339.853] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.JsoniterMarshaller_toStr:gc.count":
+  12.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (1.000, 1.200, 2.000), stdev = 0.422
+  CI (99.9%): [12.000, 12.000] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.JsoniterMarshaller_toStr:gc.time":
+  17.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (1.000, 1.700, 3.000), stdev = 0.675
+  CI (99.9%): [17.000, 17.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.SerializationBenchmark.LiftMarshaller_toStr
+
+# Run progress: 78.57% complete, ETA 00:02:03
+# Fork: 1 of 2
+# Warmup Iteration   1: 100.942 ms/op
+# Warmup Iteration   2: 50.604 ms/op
+# Warmup Iteration   3: 50.778 ms/op
+# Warmup Iteration   4: 50.476 ms/op
+# Warmup Iteration   5: 50.208 ms/op
+Iteration   1: 50.410 ms/op
+                 gc.alloc.rate:      2830.596 MB/sec
+                 gc.alloc.rate.norm: 149637516.800 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            7.000 ms
+
+Iteration   2: 50.528 ms/op
+                 gc.alloc.rate:      2824.031 MB/sec
+                 gc.alloc.rate.norm: 149637513.800 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   3: 50.526 ms/op
+                 gc.alloc.rate:      2824.111 MB/sec
+                 gc.alloc.rate.norm: 149637515.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            6.000 ms
+
+Iteration   4: 50.320 ms/op
+                 gc.alloc.rate:      2835.515 MB/sec
+                 gc.alloc.rate.norm: 149637516.800 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            7.000 ms
+
+Iteration   5: 50.427 ms/op
+                 gc.alloc.rate:      2829.619 MB/sec
+                 gc.alloc.rate.norm: 149637516.800 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            9.000 ms
+
+
+# Run progress: 82.14% complete, ETA 00:01:43
+# Fork: 2 of 2
+# Warmup Iteration   1: 101.255 ms/op
+# Warmup Iteration   2: 50.462 ms/op
+# Warmup Iteration   3: 50.616 ms/op
+# Warmup Iteration   4: 52.602 ms/op
+# Warmup Iteration   5: 52.482 ms/op
+Iteration   1: 53.189 ms/op
+                 gc.alloc.rate:      2682.761 MB/sec
+                 gc.alloc.rate.norm: 149637523.789 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            7.000 ms
+
+Iteration   2: 53.247 ms/op
+                 gc.alloc.rate:      2679.873 MB/sec
+                 gc.alloc.rate.norm: 149637528.000 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            5.000 ms
+
+Iteration   3: 57.296 ms/op
+                 gc.alloc.rate:      2490.360 MB/sec
+                 gc.alloc.rate.norm: 149637540.343 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            7.000 ms
+
+Iteration   4: 56.162 ms/op
+                 gc.alloc.rate:      2540.751 MB/sec
+                 gc.alloc.rate.norm: 149637534.222 B/op
+                 gc.count:           4.000 counts
+                 gc.time:            4.000 ms
+
+Iteration   5: 55.353 ms/op
+                 gc.alloc.rate:      2577.872 MB/sec
+                 gc.alloc.rate.norm: 149637530.378 B/op
+                 gc.count:           5.000 counts
+                 gc.time:            8.000 ms
+
+
+
+Result "benchmarks.SerializationBenchmark.LiftMarshaller_toStr":
+  52.746 ±(99.9%) 4.100 ms/op [Average]
+  (min, avg, max) = (50.320, 52.746, 57.296), stdev = 2.712
+  CI (99.9%): [48.646, 56.846] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.LiftMarshaller_toStr:gc.alloc.rate":
+  2711.549 ±(99.9%) 205.697 MB/sec [Average]
+  (min, avg, max) = (2490.360, 2711.549, 2835.515), stdev = 136.056
+  CI (99.9%): [2505.852, 2917.246] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.LiftMarshaller_toStr:gc.alloc.rate.norm":
+  149637523.593 ±(99.9%) 13.959 B/op [Average]
+  (min, avg, max) = (149637513.800, 149637523.593, 149637540.343), stdev = 9.233
+  CI (99.9%): [149637509.634, 149637537.552] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.LiftMarshaller_toStr:gc.count":
+  46.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (4.000, 4.600, 5.000), stdev = 0.516
+  CI (99.9%): [46.000, 46.000] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.LiftMarshaller_toStr:gc.time":
+  68.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (4.000, 6.800, 9.000), stdev = 1.476
+  CI (99.9%): [68.000, 68.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.SerializationBenchmark.PlayMarshaller_toStr
+
+# Run progress: 85.71% complete, ETA 00:01:22
+# Fork: 1 of 2
+# Warmup Iteration   1: 301.715 ms/op
+# Warmup Iteration   2: 123.381 ms/op
+# Warmup Iteration   3: 123.667 ms/op
+# Warmup Iteration   4: 123.180 ms/op
+# Warmup Iteration   5: 123.386 ms/op
+Iteration   1: 122.308 ms/op
+                 gc.alloc.rate:      4738.991 MB/sec
+                 gc.alloc.rate.norm: 607848903.059 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            14.000 ms
+
+Iteration   2: 122.206 ms/op
+                 gc.alloc.rate:      4743.171 MB/sec
+                 gc.alloc.rate.norm: 607848936.471 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            13.000 ms
+
+Iteration   3: 122.518 ms/op
+                 gc.alloc.rate:      4730.948 MB/sec
+                 gc.alloc.rate.norm: 607848940.706 B/op
+                 gc.count:           9.000 counts
+                 gc.time:            15.000 ms
+
+Iteration   4: 122.309 ms/op
+                 gc.alloc.rate:      4739.039 MB/sec
+                 gc.alloc.rate.norm: 607848916.235 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            14.000 ms
+
+Iteration   5: 122.197 ms/op
+                 gc.alloc.rate:      4743.176 MB/sec
+                 gc.alloc.rate.norm: 607848903.059 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            13.000 ms
+
+
+# Run progress: 89.29% complete, ETA 00:01:01
+# Fork: 2 of 2
+# Warmup Iteration   1: 257.663 ms/op
+# Warmup Iteration   2: 121.003 ms/op
+# Warmup Iteration   3: 120.818 ms/op
+# Warmup Iteration   4: 120.394 ms/op
+# Warmup Iteration   5: 120.736 ms/op
+Iteration   1: 120.478 ms/op
+                 gc.alloc.rate:      4811.090 MB/sec
+                 gc.alloc.rate.norm: 607848903.059 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            13.000 ms
+
+Iteration   2: 120.734 ms/op
+                 gc.alloc.rate:      4800.806 MB/sec
+                 gc.alloc.rate.norm: 607848904.941 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            13.000 ms
+
+Iteration   3: 120.953 ms/op
+                 gc.alloc.rate:      4792.255 MB/sec
+                 gc.alloc.rate.norm: 607848935.529 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            13.000 ms
+
+Iteration   4: 120.515 ms/op
+                 gc.alloc.rate:      4809.671 MB/sec
+                 gc.alloc.rate.norm: 607848876.706 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            12.000 ms
+
+Iteration   5: 120.730 ms/op
+                 gc.alloc.rate:      4801.041 MB/sec
+                 gc.alloc.rate.norm: 607848916.235 B/op
+                 gc.count:           8.000 counts
+                 gc.time:            12.000 ms
+
+
+
+Result "benchmarks.SerializationBenchmark.PlayMarshaller_toStr":
+  121.495 ±(99.9%) 1.316 ms/op [Average]
+  (min, avg, max) = (120.478, 121.495, 122.518), stdev = 0.870
+  CI (99.9%): [120.179, 122.811] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.PlayMarshaller_toStr:gc.alloc.rate":
+  4771.019 ±(99.9%) 51.748 MB/sec [Average]
+  (min, avg, max) = (4730.948, 4771.019, 4811.090), stdev = 34.228
+  CI (99.9%): [4719.270, 4822.767] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.PlayMarshaller_toStr:gc.alloc.rate.norm":
+  607848913.600 ±(99.9%) 29.908 B/op [Average]
+  (min, avg, max) = (607848876.706, 607848913.600, 607848940.706), stdev = 19.782
+  CI (99.9%): [607848883.692, 607848943.508] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.PlayMarshaller_toStr:gc.count":
+  81.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (8.000, 8.100, 9.000), stdev = 0.316
+  CI (99.9%): [81.000, 81.000] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.PlayMarshaller_toStr:gc.time":
+  132.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (12.000, 13.200, 15.000), stdev = 0.919
+  CI (99.9%): [132.000, 132.000] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 21.0.12.1, OpenJDK 64-Bit Server VM, 21.0.12.1+1-1-24.04.4-Ubuntu
+# VM invoker: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+# VM options: -Xms2g -Xmx2g -XX:+UseG1GC
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: benchmarks.SerializationBenchmark.SprayMarshaller_toStr
+
+# Run progress: 92.86% complete, ETA 00:00:41
+# Fork: 1 of 2
+# Warmup Iteration   1: 102.079 ms/op
+# Warmup Iteration   2: 53.430 ms/op
+# Warmup Iteration   3: 53.503 ms/op
+# Warmup Iteration   4: 53.136 ms/op
+# Warmup Iteration   5: 53.137 ms/op
+Iteration   1: 53.190 ms/op
+                 gc.alloc.rate:      3902.505 MB/sec
+                 gc.alloc.rate.norm: 217672966.105 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   2: 53.052 ms/op
+                 gc.alloc.rate:      3912.551 MB/sec
+                 gc.alloc.rate.norm: 217672934.737 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            9.000 ms
+
+Iteration   3: 53.265 ms/op
+                 gc.alloc.rate:      3896.908 MB/sec
+                 gc.alloc.rate.norm: 217672964.211 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            10.000 ms
+
+Iteration   4: 53.275 ms/op
+                 gc.alloc.rate:      3896.091 MB/sec
+                 gc.alloc.rate.norm: 217672934.737 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   5: 53.287 ms/op
+                 gc.alloc.rate:      3895.145 MB/sec
+                 gc.alloc.rate.norm: 217672963.158 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            10.000 ms
+
+
+# Run progress: 96.43% complete, ETA 00:00:20
+# Fork: 2 of 2
+# Warmup Iteration   1: 102.180 ms/op
+# Warmup Iteration   2: 53.921 ms/op
+# Warmup Iteration   3: 53.825 ms/op
+# Warmup Iteration   4: 53.958 ms/op
+# Warmup Iteration   5: 53.606 ms/op
+Iteration   1: 53.668 ms/op
+                 gc.alloc.rate:      3867.710 MB/sec
+                 gc.alloc.rate.norm: 217672964.211 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            9.000 ms
+
+Iteration   2: 53.859 ms/op
+                 gc.alloc.rate:      3853.783 MB/sec
+                 gc.alloc.rate.norm: 217672934.737 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            9.000 ms
+
+Iteration   3: 53.758 ms/op
+                 gc.alloc.rate:      3861.216 MB/sec
+                 gc.alloc.rate.norm: 217672964.211 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            10.000 ms
+
+Iteration   4: 53.773 ms/op
+                 gc.alloc.rate:      3860.163 MB/sec
+                 gc.alloc.rate.norm: 217672934.737 B/op
+                 gc.count:           6.000 counts
+                 gc.time:            8.000 ms
+
+Iteration   5: 53.354 ms/op
+                 gc.alloc.rate:      3890.346 MB/sec
+                 gc.alloc.rate.norm: 217672963.158 B/op
+                 gc.count:           7.000 counts
+                 gc.time:            10.000 ms
+
+
+
+Result "benchmarks.SerializationBenchmark.SprayMarshaller_toStr":
+  53.448 ±(99.9%) 0.433 ms/op [Average]
+  (min, avg, max) = (53.052, 53.448, 53.859), stdev = 0.287
+  CI (99.9%): [53.015, 53.881] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.SprayMarshaller_toStr:gc.alloc.rate":
+  3883.642 ±(99.9%) 31.469 MB/sec [Average]
+  (min, avg, max) = (3853.783, 3883.642, 3912.551), stdev = 20.815
+  CI (99.9%): [3852.173, 3915.111] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.SprayMarshaller_toStr:gc.alloc.rate.norm":
+  217672952.400 ±(99.9%) 23.015 B/op [Average]
+  (min, avg, max) = (217672934.737, 217672952.400, 217672966.105), stdev = 15.223
+  CI (99.9%): [217672929.385, 217672975.415] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.SprayMarshaller_toStr:gc.count":
+  64.000 ±(99.9%) 0.001 counts [Sum]
+  (min, avg, max) = (6.000, 6.400, 7.000), stdev = 0.516
+  CI (99.9%): [64.000, 64.000] (assumes normal distribution)
+
+Secondary result "benchmarks.SerializationBenchmark.SprayMarshaller_toStr:gc.time":
+  91.000 ±(99.9%) 0.001 ms [Sum]
+  (min, avg, max) = (8.000, 9.100, 10.000), stdev = 0.876
+  CI (99.9%): [91.000, 91.000] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:09:37
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                                             Mode  Cnt          Score          Error   Units
+DeserializationBenchmark.ArgonautMarshaller_parse                     avgt   10        110.935 ±        0.427   ms/op
+DeserializationBenchmark.ArgonautMarshaller_parse:gc.alloc.rate       avgt   10       4961.906 ±       19.142  MB/sec
+DeserializationBenchmark.ArgonautMarshaller_parse:gc.alloc.rate.norm  avgt   10  577242632.187 ±       14.017    B/op
+DeserializationBenchmark.ArgonautMarshaller_parse:gc.count            avgt   10         86.000                 counts
+DeserializationBenchmark.ArgonautMarshaller_parse:gc.time             avgt   10        324.000                     ms
+DeserializationBenchmark.CirceMarshaller_parse                        avgt   10         67.385 ±        0.681   ms/op
+DeserializationBenchmark.CirceMarshaller_parse:gc.alloc.rate          avgt   10       3421.881 ±       34.003  MB/sec
+DeserializationBenchmark.CirceMarshaller_parse:gc.alloc.rate.norm     avgt   10  241798870.400 ±        0.001    B/op
+DeserializationBenchmark.CirceMarshaller_parse:gc.count               avgt   10         58.000                 counts
+DeserializationBenchmark.CirceMarshaller_parse:gc.time                avgt   10        190.000                     ms
+DeserializationBenchmark.Json4SMarshaller_parse                       avgt   10        126.199 ±        1.075   ms/op
+DeserializationBenchmark.Json4SMarshaller_parse:gc.alloc.rate         avgt   10       2579.255 ±       37.553  MB/sec
+DeserializationBenchmark.Json4SMarshaller_parse:gc.alloc.rate.norm    avgt   10  341336044.400 ±  3154630.986    B/op
+DeserializationBenchmark.Json4SMarshaller_parse:gc.count              avgt   10         42.000                 counts
+DeserializationBenchmark.Json4SMarshaller_parse:gc.time               avgt   10        154.000                     ms
+DeserializationBenchmark.JsoniterMarshaller_parse                     avgt   10         13.601 ±        0.265   ms/op
+DeserializationBenchmark.JsoniterMarshaller_parse:gc.alloc.rate       avgt   10       2201.203 ±       42.504  MB/sec
+DeserializationBenchmark.JsoniterMarshaller_parse:gc.alloc.rate.norm  avgt   10   31391254.921 ±        0.884    B/op
+DeserializationBenchmark.JsoniterMarshaller_parse:gc.count            avgt   10         36.000                 counts
+DeserializationBenchmark.JsoniterMarshaller_parse:gc.time             avgt   10         88.000                     ms
+DeserializationBenchmark.LiftMarshaller_parse                         avgt   10         81.975 ±        1.869   ms/op
+DeserializationBenchmark.LiftMarshaller_parse:gc.alloc.rate           avgt   10       3646.659 ±       82.757  MB/sec
+DeserializationBenchmark.LiftMarshaller_parse:gc.alloc.rate.norm      avgt   10  313419727.845 ±        7.074    B/op
+DeserializationBenchmark.LiftMarshaller_parse:gc.count                avgt   10         61.000                 counts
+DeserializationBenchmark.LiftMarshaller_parse:gc.time                 avgt   10        241.000                     ms
+DeserializationBenchmark.PlayMarshaller_parse                         avgt   10         84.038 ±        0.183   ms/op
+DeserializationBenchmark.PlayMarshaller_parse:gc.alloc.rate           avgt   10       4809.544 ±       10.453  MB/sec
+DeserializationBenchmark.PlayMarshaller_parse:gc.alloc.rate.norm      avgt   10  423861208.133 ±        0.637    B/op
+DeserializationBenchmark.PlayMarshaller_parse:gc.count                avgt   10         80.000                 counts
+DeserializationBenchmark.PlayMarshaller_parse:gc.time                 avgt   10        332.000                     ms
+DeserializationBenchmark.SprayMarshaller_parse                        avgt   10         65.468 ±        2.182   ms/op
+DeserializationBenchmark.SprayMarshaller_parse:gc.alloc.rate          avgt   10       2582.013 ±      101.409  MB/sec
+DeserializationBenchmark.SprayMarshaller_parse:gc.alloc.rate.norm     avgt   10  177177788.543 ±  1074007.243    B/op
+DeserializationBenchmark.SprayMarshaller_parse:gc.count               avgt   10         44.000                 counts
+DeserializationBenchmark.SprayMarshaller_parse:gc.time                avgt   10        147.000                     ms
+SerializationBenchmark.ArgonautMarshaller_toStr                       avgt   10         93.941 ±        1.722   ms/op
+SerializationBenchmark.ArgonautMarshaller_toStr:gc.alloc.rate         avgt   10       4449.167 ±      268.330  MB/sec
+SerializationBenchmark.ArgonautMarshaller_toStr:gc.alloc.rate.norm    avgt   10  438498957.600 ± 34409266.353    B/op
+SerializationBenchmark.ArgonautMarshaller_toStr:gc.count              avgt   10         76.000                 counts
+SerializationBenchmark.ArgonautMarshaller_toStr:gc.time               avgt   10        123.000                     ms
+SerializationBenchmark.CirceMarshaller_toStr                          avgt   10         44.484 ±        0.452   ms/op
+SerializationBenchmark.CirceMarshaller_toStr:gc.alloc.rate            avgt   10       3955.251 ±       40.216  MB/sec
+SerializationBenchmark.CirceMarshaller_toStr:gc.alloc.rate.norm       avgt   10  184503312.793 ±        6.223    B/op
+SerializationBenchmark.CirceMarshaller_toStr:gc.count                 avgt   10         66.000                 counts
+SerializationBenchmark.CirceMarshaller_toStr:gc.time                  avgt   10        100.000                     ms
+SerializationBenchmark.Json4SMarshaller_toStr                         avgt   10        116.321 ±        1.336   ms/op
+SerializationBenchmark.Json4SMarshaller_toStr:gc.alloc.rate           avgt   10       3073.583 ±       35.226  MB/sec
+SerializationBenchmark.Json4SMarshaller_toStr:gc.alloc.rate.norm      avgt   10  374914601.378 ±        4.703    B/op
+SerializationBenchmark.Json4SMarshaller_toStr:gc.count                avgt   10         52.000                 counts
+SerializationBenchmark.Json4SMarshaller_toStr:gc.time                 avgt   10         85.000                     ms
+SerializationBenchmark.JsoniterMarshaller_toStr                       avgt   10         14.226 ±        0.136   ms/op
+SerializationBenchmark.JsoniterMarshaller_toStr:gc.alloc.rate         avgt   10        740.003 ±        7.028  MB/sec
+SerializationBenchmark.JsoniterMarshaller_toStr:gc.alloc.rate.norm    avgt   10   11039338.771 ±        1.082    B/op
+SerializationBenchmark.JsoniterMarshaller_toStr:gc.count              avgt   10         12.000                 counts
+SerializationBenchmark.JsoniterMarshaller_toStr:gc.time               avgt   10         17.000                     ms
+SerializationBenchmark.LiftMarshaller_toStr                           avgt   10         52.746 ±        4.100   ms/op
+SerializationBenchmark.LiftMarshaller_toStr:gc.alloc.rate             avgt   10       2711.549 ±      205.697  MB/sec
+SerializationBenchmark.LiftMarshaller_toStr:gc.alloc.rate.norm        avgt   10  149637523.593 ±       13.959    B/op
+SerializationBenchmark.LiftMarshaller_toStr:gc.count                  avgt   10         46.000                 counts
+SerializationBenchmark.LiftMarshaller_toStr:gc.time                   avgt   10         68.000                     ms
+SerializationBenchmark.PlayMarshaller_toStr                           avgt   10        121.495 ±        1.316   ms/op
+SerializationBenchmark.PlayMarshaller_toStr:gc.alloc.rate             avgt   10       4771.019 ±       51.748  MB/sec
+SerializationBenchmark.PlayMarshaller_toStr:gc.alloc.rate.norm        avgt   10  607848913.600 ±       29.908    B/op
+SerializationBenchmark.PlayMarshaller_toStr:gc.count                  avgt   10         81.000                 counts
+SerializationBenchmark.PlayMarshaller_toStr:gc.time                   avgt   10        132.000                     ms
+SerializationBenchmark.SprayMarshaller_toStr                          avgt   10         53.448 ±        0.433   ms/op
+SerializationBenchmark.SprayMarshaller_toStr:gc.alloc.rate            avgt   10       3883.642 ±       31.469  MB/sec
+SerializationBenchmark.SprayMarshaller_toStr:gc.alloc.rate.norm       avgt   10  217672952.400 ±       23.015    B/op
+SerializationBenchmark.SprayMarshaller_toStr:gc.count                 avgt   10         64.000                 counts
+SerializationBenchmark.SprayMarshaller_toStr:gc.time                  avgt   10         91.000                     ms
+
+Benchmark result is saved to results/jmh.json
+[success] elapsed time: 579 s (0:09:39.0), cache 81%, 31 disk cache hits, 7 onsite tasks

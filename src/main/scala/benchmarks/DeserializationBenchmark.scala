@@ -1,10 +1,10 @@
 package benchmarks
 
-import java.nio.charset.StandardCharsets
+import models.Bird
 
 import marshallers._
 
-import scala.io.Source
+
 import org.openjdk.jmh.annotations._
 import java.util.concurrent.TimeUnit
 
@@ -15,57 +15,55 @@ class DeserializationBenchmark {
   import DeserializationBenchmark._
 
   @Benchmark
-  def Json4SMarshaller_parse(): Int = {
+  def Json4SMarshaller_parse(): Array[Bird] = {
     val parser = new Json4SMarshaller
     val parsed = data.map(parser.parse)
-    parsed.length
+    parsed
   }
 
   @Benchmark
-  def CirceMarshaller_parse(): Int = {
+  def CirceMarshaller_parse(): Array[Bird] = {
     val parser = new CirceMarshaller
     val parsed = data.map(parser.parse)
-    parsed.length
+    parsed
   }
 
   @Benchmark
-  def SprayMarshaller_parse(): Int = {
+  def SprayMarshaller_parse(): Array[Bird] = {
     val parser = new SprayMarshaller
     val parsed = data.map(parser.parse)
-    parsed.length
+    parsed
   }
 
   @Benchmark
-  def ArgonautMarshaller_parse(): Int = {
+  def ArgonautMarshaller_parse(): Array[Bird] = {
     val parser = new ArgonautMarshaller
     val parsed = data.map(parser.parse)
-    parsed.length
+    parsed
   }
 
   @Benchmark
-  def PlayMarshaller_parse(): Int = {
+  def PlayMarshaller_parse(): Array[Bird] = {
     val parser = new PlayMarshaller
     val parsed = data.map(parser.parse)
-    parsed.length
+    parsed
   }
 
   @Benchmark
-  def LiftMarshaller_parse(): Int = {
+  def LiftMarshaller_parse(): Array[Bird] = {
     val parser = new LiftMarshaller
     val parsed = data.map(parser.parse)
-    parsed.length
+    parsed
   }
 
   @Benchmark
-  def JsoniterMarshaller_parse(): Int = {
+  def JsoniterMarshaller_parse(): Array[Bird] = {
     val parser = new JsoniterMarshaller
     val parsed = data.map(parser.parse)
-    parsed.length
+    parsed
   }
 }
 
 object DeserializationBenchmark {
-  val data: Array[String] = Source.fromInputStream(getClass.getClassLoader.getResourceAsStream("birds.data"), StandardCharsets.UTF_8.name())
-    .getLines()
-    .toArray
+  val data: Array[String] = Fixture.json
 }

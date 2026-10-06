@@ -12,7 +12,7 @@ class CirceMarshaller extends Marshaller {
   implicit val birdEncoder: Encoder[Bird] = deriveEncoder[Bird]
 
   def parse(s: String): Bird = {
-    io.circe.parser.parse(s).right.get.as[Bird].right.get
+    io.circe.parser.decode[Bird](s).fold(throw _, identity)
   }
 
   def toStr(bird: Bird): String = {

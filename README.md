@@ -1,5 +1,69 @@
 # A Scala JSON serialization/deserialization benchmark
 
+## Updated fork
+
+This fork updates the original seven-library comparison to stable releases
+available for Scala 2.13. Versions were checked against Maven Central metadata
+on 6 October 2026 UTC. Scala 2.13 retains support for all seven libraries; it is
+not a claim that Scala 2.13 is the newest Scala major version.
+
+| Component | Version |
+|---|---|
+| Scala | 2.13.18 |
+| sbt | 2.0.10 |
+| sbt-jmh / JMH | 0.4.8 / 1.37 |
+| Argonaut | 6.3.10 |
+| Circe | 0.14.16 |
+| json4s | 4.0.7 |
+| jsoniter-scala | 2.41.2 |
+| Lift JSON | 3.5.0 |
+| Play JSON | 3.0.6 |
+| spray-json | 1.3.6 |
+
+Unused Argonaut integration dependencies and the obsolete dependency-graph
+plugin are removed. The build uses Maven Central over HTTPS; the old HTTP,
+snapshot and repository-webpage resolvers are removed. Play JSON now uses its
+`org.playframework` coordinates. Codec APIs are updated for the newer releases.
+
+Benchmarks return their result arrays so JMH consumes the generated values,
+instead of returning only an array length. Resources are closed after loading.
+One measured operation still processes all **25,000 records**; results are
+**milliseconds per batch**, not milliseconds per record. Parser/codec creation
+once per batch is retained from the upstream benchmark.
+
+`benchmarks.Validate` checks all 25,000 source records and encode/decode round
+trips using every library before measurements. The fixture data is unchanged.
+These checks demonstrate agreement on this fixture, not identical semantics
+for arbitrary missing fields, duplicate keys, malformed input or numeric limits.
+Each library retains its default formatting and optional-field behavior, so
+serialization produces semantically equivalent values, not byte-identical JSON.
+The dependency metadata snapshot is in `dependency-versions.json`.
+
+### Run on Linux
+
+Install a JDK (the mini run uses OpenJDK 21), plus `curl` and Python 3, then:
+
+```sh
+bash scripts/run-mini.sh
+```
+
+The script downloads the pinned sbt launcher into ignored `.tools/`, compiles
+and validates, then runs all fourteen benchmarks: one thread, two forks,
+five two-second warmup iterations and five two-second measurement iterations.
+Forks use a fixed 2 GiB heap and G1 GC; the GC profiler records allocation.
+Allow roughly ten minutes plus dependency downloads and compilation.
+Set `JAVA_HOME` to select another installed JDK.
+
+Raw JMH JSON, logs, hardware/JVM metadata, CSV and a readable table are saved in
+`results/`. The mini machine is a Minisforum AI X1 Lite with a Ryzen 7 255;
+this is a single-thread case-class codec benchmark, not HTTP or Spark throughput.
+[Completed mini results](results/README.md) include confidence intervals and
+allocation measurements; [raw JMH samples](results/jmh.json) retain both forks.
+Modern measurements should not be directly compared with the historical tables
+below: hardware, JVM, dependencies and result consumption have changed.
+
+## Original upstream documentation and historical results
+
 ### Introduction
 When decision about JSON library should be made because of performance, this benchmark can be helpful. Benchmarked libraries:
 - [Argonaut](https://github.com/argonaut-io/argonaut)
@@ -73,4 +137,3 @@ Dataset and types ([Bird](src/main/scala/models/Bird.scala) and [Place](src/main
 | Argonaut  | 264.283 |
 | play-json | 342.450 |
 | json4s    | 403.946 |
-

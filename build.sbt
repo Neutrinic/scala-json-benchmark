@@ -1,34 +1,22 @@
 name := "scala-json-benchmark"
+version := "2.0.0"
+scalaVersion := "2.13.18"
 
-version := "1.0.1"
-
-scalaVersion := "2.12.8"
-
-resolvers ++= Seq(
-  "Maven repo" at "http://repo1.maven.org/maven2",
-  "Spring repo" at "http://repo.springsource.org/libs-release",
-  "Apache repo" at "https://repository.apache.org/content/repositories/releases",
-  "JBoss repo" at "http://repository.jboss.org/nexus/content/groups/public-jboss",
-  "Sonatype repo" at "https://oss.sonatype.org/content/repositories/releases",
-  "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots",
-  "Mvnrepository" at "http://mvnrepository.com/artifact"
-)
-
+// Latest stable releases available for Scala 2.13, checked against Maven Central.
+// Retain this Scala line so every original library remains in the comparison.
 libraryDependencies ++= Seq(
-  "org.json4s" %% "json4s-jackson" % "3.6.4",
-  "io.spray" %% "spray-json" % "1.3.5",
-  "net.liftweb" %% "lift-json" % "3.3.0",
-  "com.typesafe.play" %% "play-json" % "2.6.10",
-  "io.circe" %% "circe-core" % "0.11.1",
-  "io.circe" %% "circe-generic" % "0.11.1",
-  "io.circe" %% "circe-parser" % "0.11.1",
-  "io.argonaut" %% "argonaut" % "6.2.2",
-  "io.argonaut" %% "argonaut-scalaz" % "6.2.2",
-  "io.argonaut" %% "argonaut-monocle" % "6.2.2",
-  "io.argonaut" %% "argonaut-cats" % "6.2.2",
-  "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % "0.41.0" % Compile,
-  "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % "0.41.0" % Provided // required only in compile-time
+  "org.json4s" %% "json4s-jackson" % "4.0.7",
+  "io.spray" %% "spray-json" % "1.3.6",
+  "net.liftweb" %% "lift-json" % "3.5.0",
+  "org.playframework" %% "play-json" % "3.0.6",
+  "io.circe" %% "circe-core" % "0.14.16",
+  "io.circe" %% "circe-generic" % "0.14.16",
+  "io.circe" %% "circe-parser" % "0.14.16",
+  "io.argonaut" %% "argonaut" % "6.3.10",
+  "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % "2.41.2",
+  "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % "2.41.2" % Provided
 )
 
+scalacOptions ++= Seq("-deprecation", "-feature", "-unchecked")
 enablePlugins(JmhPlugin)
 
