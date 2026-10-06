@@ -21,6 +21,7 @@ not a claim that Scala 2.13 is the newest Scala major version.
 | Play JSON | 3.0.6 |
 | spray-json | 1.3.6 |
 | Jawn parser / custom direct facade | 1.8.0 |
+| Jackson core / databind / Scala module | 3.2.3 |
 
 Unused Argonaut integration dependencies and the obsolete dependency-graph
 plugin are removed. The build uses Maven Central over HTTPS; the old HTTP,
@@ -59,7 +60,7 @@ BENCHMARK_FILTER='benchmarks.*Benchmark.(Circe|CirceBooster|Jsoniter)Marshaller.
   bash scripts/run-mini.sh
 ```
 
-This validates all nine implementations, then measures the selected three
+This validates all eleven implementations, then measures the selected three
 together with identical JMH settings (about four minutes). These six fresh
 measurements are kept in their own directory; results from separate runs are
 not spliced together. The original seven-library results remain in `results/`.
@@ -95,6 +96,41 @@ recorded comparisons resolved Jawn 1.7.0, so use this fresh four-way run when
 comparing the new facade. [Results and allocations](results/jawn-facade-comparison/README.md)
 are recorded separately from the earlier runs.
 
+### Jackson
+
+Two implementations use Jackson **3.2.3** (`tools.jackson.*`), which coexists
+with the legacy Jackson 2 dependencies used by json4s and Play JSON:
+
+- `JacksonScalaMarshaller`: `JsonMapper` with `DefaultScalaModule`, using cached
+  `ObjectReader`/`ObjectWriter` instances for `Bird`. Mapper setup and first-use
+  metadata discovery are warmed up outside measured iterations. Unknown fields
+  are ignored; trailing tokens and null primitive values are rejected.
+- `JacksonStreamingMarshaller`: handwritten `JsonParser` token-to-model decoding
+  and `JsonGenerator` model-to-token encoding. It does not construct a generic
+  JSON tree. It checks required fields, skips unknown subtrees, supports null or
+  absent optional fields, and rejects fractional/out-of-range integer values.
+  Its reusable `JsonFactory` creates/cleans up a parser or generator per record.
+  Encoding uses a standard `StringWriter`; absent options are written as null.
+
+Both implementations are checked against every fixture record and round trip.
+The handwritten Jackson parser also shares the Jawn facade's schema edge checks.
+This tests the String API on the same fixture as the other libraries; it does
+not measure UTF-8 byte-stream input, HTTP delivery or a custom zero-copy sink.
+
+New comparisons use filename prefixes in the existing `results/` directory,
+without adding report directories:
+
+```sh
+RESULTS_PREFIX=jackson- \
+BENCHMARK_LIBRARIES=circebooster,jsoniter,jawnfacade,jacksonscala,jacksonstreaming \
+BENCHMARK_FILTER='benchmarks.*Benchmark.(CirceBooster|Jsoniter|JawnFacade|JacksonScala|JacksonStreaming)Marshaller.*' \
+  bash scripts/run-mini.sh
+```
+
+This records nine fresh measurements (five decoders, four encoders) together.
+The Jawn facade remains decode-only. [Jackson comparison](results/jackson-README.md)
+includes timing uncertainty and allocations; raw files use the `jackson-` prefix.
+
 ### Run on Linux
 
 Install a JDK (the mini run uses OpenJDK 21), plus `curl` and Python 3, then:
@@ -104,11 +140,12 @@ bash scripts/run-mini.sh
 ```
 
 The script downloads the pinned sbt launcher into ignored `.tools/`, compiles
-and validates, then runs all seventeen benchmarks (nine decoders, eight encoders): one thread, two forks,
+and validates, then runs all twenty-one benchmarks (eleven decoders, ten encoders): one thread, two forks,
 five two-second warmup iterations and five two-second measurement iterations.
 Forks use a fixed 2 GiB heap and G1 GC; the GC profiler records allocation.
-Allow roughly twelve minutes plus dependency downloads and compilation.
+Allow roughly fifteen minutes plus dependency downloads and compilation.
 Set `JAVA_HOME` to select another installed JDK.
+Use `RESULTS_PREFIX` to preserve additional runs as files without creating folders.
 
 Raw JMH JSON, logs, hardware/JVM metadata, CSV and a readable table are saved in
 `results/`. The mini machine is a Minisforum AI X1 Lite with a Ryzen 7 255;

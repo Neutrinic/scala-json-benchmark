@@ -12,6 +12,8 @@ object Validate {
       "json4s" -> new Json4SMarshaller,
       "jsoniter-scala" -> new JsoniterMarshaller,
       "jawn-facade" -> new JawnFacadeParser,
+      "jackson-scala" -> new JacksonScalaMarshaller,
+      "jackson-streaming" -> new JacksonStreamingMarshaller,
       "lift-json" -> new LiftMarshaller,
       "play-json" -> new PlayMarshaller,
       "spray-json" -> new SprayMarshaller
@@ -27,6 +29,6 @@ object Validate {
       }
       println(s"PASS $name: ${Fixture.json.length} decodes" + (if (codec.isInstanceOf[Marshaller]) " and round trips" else " (decode-only)"))
     }
-    ValidateJawn.run()
+    ValidateStreaming.run()
   }
 }

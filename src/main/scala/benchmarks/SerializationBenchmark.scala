@@ -64,6 +64,18 @@ class SerializationBenchmark{
   }
 
   @Benchmark
+  def JacksonScalaMarshaller_toStr(): Array[String] = {
+    val parser = new JacksonScalaMarshaller
+    birds.map(parser.toStr)
+  }
+
+  @Benchmark
+  def JacksonStreamingMarshaller_toStr(): Array[String] = {
+    val parser = new JacksonStreamingMarshaller
+    birds.map(parser.toStr)
+  }
+
+  @Benchmark
   def JsoniterMarshaller_toStr(): Array[String] = {
     val parser = new JsoniterMarshaller
     val strs = birds.map(parser.toStr)

@@ -1,5 +1,5 @@
 {
-  "checked_utc": "2026-10-06T05:10:26.3909883Z",
+  "checked_utc": "2026-10-06T05:29:06.5700592Z",
   "scala_scope": "2.13 (original seven-library compatibility)",
   "libraries": [
     {
@@ -79,6 +79,24 @@
       "metadata": "https://repo.maven.apache.org/maven2/org/typelevel/jawn-parser_2.13/maven-metadata.xml",
       "latest_stable_compatible": "1.8.0",
       "latest_including_prereleases": "1.8.0"
+    },
+    {
+      "name": "jackson-core-3",
+      "metadata": "https://repo.maven.apache.org/maven2/tools/jackson/core/jackson-core/maven-metadata.xml",
+      "latest_stable_compatible": "3.2.3",
+      "latest_including_prereleases": "3.2.3"
+    },
+    {
+      "name": "jackson-databind-3",
+      "metadata": "https://repo.maven.apache.org/maven2/tools/jackson/core/jackson-databind/maven-metadata.xml",
+      "latest_stable_compatible": "3.2.3",
+      "latest_including_prereleases": "3.2.3"
+    },
+    {
+      "name": "jackson-module-scala-3",
+      "metadata": "https://repo.maven.apache.org/maven2/tools/jackson/module/jackson-module-scala_2.13/maven-metadata.xml",
+      "latest_stable_compatible": "3.2.3",
+      "latest_including_prereleases": "3.2.3"
     }
   ]
 }

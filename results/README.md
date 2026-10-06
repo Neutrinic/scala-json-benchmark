@@ -1,5 +1,13 @@
 # Mini: Scala JSON benchmark
 
+Latest comparison: **[Jackson 3.2.3 databinding and direct streaming](jackson-README.md)**.
+New results use filename prefixes in this directory rather than new folders.
+
+Earlier focused runs: [Circe booster](booster-comparison/README.md) and
+[direct Jawn facade](jawn-facade-comparison/README.md).
+The table below preserves the original seven-library run; each comparison
+has its own raw samples and environment metadata.
+
 Each JMH operation processes the complete 25,000-record fixture. Lower time is better.
 The ± values are JMH's reported 99.9% confidence intervals, not standard deviations.
 This is a single-thread typed case-class microbenchmark, not an HTTP, Spark or streaming-parser benchmark.

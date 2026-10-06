@@ -5,10 +5,13 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent.parent
 p=argparse.ArgumentParser()
 p.add_argument('--results-dir',default='results')
-p.add_argument('--libraries',default='argonaut,circe,circebooster,json4s,jsoniter,jawnfacade,lift,play,spray')
+p.add_argument('--libraries',default='argonaut,circe,circebooster,json4s,jsoniter,jawnfacade,jacksonscala,jacksonstreaming,lift,play,spray')
 p.add_argument('--operations',default='decode,encode')
+p.add_argument('--prefix',default='')
 a=p.parse_args()
 RESULTS=ROOT/a.results_dir
+assert not any(ch in a.prefix for ch in '/\\'), 'Prefix must be a filename prefix, not a path'
+def result_file(name):return RESULTS/(a.prefix+name)
 expected=set(a.libraries.split(','))
 operations=set(a.operations.split(','))
 assert operations and operations <= {'decode','encode'}
@@ -18,7 +21,7 @@ records=[line.rstrip(b'\r\n') for line in (ROOT/'src/main/resources/birds.data')
 count=len(records)
 assert count==25000
 input_bytes=sum(map(len,records))
-results=json.loads((RESULTS/'jmh.json').read_text())
+results=json.loads(result_file('jmh.json').read_text())
 assert len(results)==len(expected_pairs), f'Expected {len(expected_pairs)} benchmarks, got {len(results)}'
 rows=[]
 for result in results:
@@ -33,7 +36,7 @@ for result in results:
         input_MB_per_second=(input_bytes/metric['score']/1000 if operation=='decode' else ''))
     rows.append(row)
 assert {(r['library'],r['operation']) for r in rows}==expected_pairs
-with (RESULTS/'summary.csv').open('w',newline='') as f:
+with result_file('summary.csv').open('w',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
 text=['# Mini: Scala JSON benchmark', '',
     'Each JMH operation processes the complete 25,000-record fixture. Lower time is better.',
@@ -49,7 +52,7 @@ for row in sorted((r for r in rows if r['operation']=='decode'),key=lambda r:r['
     encode_text=f"{encode['batch_ms']:.3f} ± {encode['batch_error_ms']:.3f}" if encode else '—'
     text.append(f"| {row['library']} | {row['batch_ms']:.3f} ± {row['batch_error_ms']:.3f} | {encode_text} | {row['rows_per_second']:,.0f} | {row['input_MB_per_second']:.1f} | {row['allocated_bytes_per_row']:,.0f} |")
 text+=['',f'Fixture: {count:,} JSON records, {input_bytes:,} UTF-8 bytes excluding line separators.',
-       'Raw timings, all allocation metrics and per-fork samples: `jmh.json`. Full run output: `jmh.log`.',
-       'CPU/JVM and fixture checksum: `environment.txt`; source checksums: `source.sha256`.']
-(RESULTS/'README.md').write_text('\n'.join(text)+'\n')
+       f"Raw timings, all allocation metrics and per-fork samples: `{a.prefix}jmh.json`. Full run output: `{a.prefix}jmh.log`.",
+       f"CPU/JVM and fixture checksum: `{a.prefix}environment.txt`; source checksums: `{a.prefix}source.sha256`."]
+result_file('README.md').write_text('\n'.join(text)+'\n')
 print('\n'.join(text))
