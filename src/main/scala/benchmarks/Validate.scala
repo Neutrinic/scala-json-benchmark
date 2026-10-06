@@ -8,6 +8,7 @@ object Validate {
     val libraries: Seq[(String, Marshaller)] = Seq(
       "argonaut" -> new ArgonautMarshaller,
       "circe" -> new CirceMarshaller,
+      "circe-booster" -> new CirceBoosterMarshaller,
       "json4s" -> new Json4SMarshaller,
       "jsoniter-scala" -> new JsoniterMarshaller,
       "lift-json" -> new LiftMarshaller,

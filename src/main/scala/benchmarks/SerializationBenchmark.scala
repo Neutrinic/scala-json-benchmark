@@ -51,6 +51,12 @@ class SerializationBenchmark{
   }
 
   @Benchmark
+  def CirceBoosterMarshaller_toStr(): Array[String] = {
+    val parser = new CirceBoosterMarshaller
+    birds.map(parser.toStr)
+  }
+
+  @Benchmark
   def CirceMarshaller_toStr(): Array[String] = {
     val parser = new CirceMarshaller
     val strs = birds.map(parser.toStr)

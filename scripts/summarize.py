@@ -1,14 +1,20 @@
 """Convert JMH's batch timings to a readable table without hiding uncertainty."""
-import csv,json,math
+import argparse,csv,json,math
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent.parent
+p=argparse.ArgumentParser()
+p.add_argument('--results-dir',default='results')
+p.add_argument('--libraries',default='argonaut,circe,circebooster,json4s,jsoniter,lift,play,spray')
+a=p.parse_args()
+RESULTS=ROOT/a.results_dir
+expected=set(a.libraries.split(','))
 records=[line.rstrip(b'\r\n') for line in (ROOT/'src/main/resources/birds.data').read_bytes().splitlines(keepends=True)]
 count=len(records)
 assert count==25000
 input_bytes=sum(map(len,records))
-results=json.loads((ROOT/'results/jmh.json').read_text())
-assert len(results)==14, f'Expected 14 benchmarks, got {len(results)}'
+results=json.loads((RESULTS/'jmh.json').read_text())
+assert len(results)==2*len(expected), f'Expected {2*len(expected)} benchmarks, got {len(results)}'
 rows=[]
 for result in results:
     name=result['benchmark'];metric=result['primaryMetric']
@@ -21,7 +27,8 @@ for result in results:
         rows_per_second=count*1000/metric['score'],allocated_bytes_per_row=allocated/count,
         input_MB_per_second=(input_bytes/metric['score']/1000 if operation=='decode' else ''))
     rows.append(row)
-with (ROOT/'results/summary.csv').open('w',newline='') as f:
+assert {(r['library'],r['operation']) for r in rows}=={(library,operation) for library in expected for operation in ('decode','encode')}
+with (RESULTS/'summary.csv').open('w',newline='') as f:
     writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
 text=['# Mini: Scala JSON benchmark', '',
     'Each JMH operation processes the complete 25,000-record fixture. Lower time is better.',
@@ -36,5 +43,5 @@ for row in sorted((r for r in rows if r['operation']=='decode'),key=lambda r:r['
 text+=['',f'Fixture: {count:,} JSON records, {input_bytes:,} UTF-8 bytes excluding line separators.',
        'Raw timings, all allocation metrics and per-fork samples: `jmh.json`. Full run output: `jmh.log`.',
        'CPU/JVM and fixture checksum: `environment.txt`; source checksums: `source.sha256`.']
-(ROOT/'results/README.md').write_text('\n'.join(text)+'\n')
+(RESULTS/'README.md').write_text('\n'.join(text)+'\n')
 print('\n'.join(text))

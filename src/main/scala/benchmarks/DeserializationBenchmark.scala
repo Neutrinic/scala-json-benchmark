@@ -22,6 +22,12 @@ class DeserializationBenchmark {
   }
 
   @Benchmark
+  def CirceBoosterMarshaller_parse(): Array[Bird] = {
+    val parser = new CirceBoosterMarshaller
+    data.map(parser.parse)
+  }
+
+  @Benchmark
   def CirceMarshaller_parse(): Array[Bird] = {
     val parser = new CirceMarshaller
     val parsed = data.map(parser.parse)
